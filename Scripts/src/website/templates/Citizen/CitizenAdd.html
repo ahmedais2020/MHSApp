@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<!-- Price box minimal-->
+{% extends '../base.html' %}
+
+{% load static %}
+<html class="wide wow-animation" lang="en">
+
+<head>
+  {% block title %} Add Profile {% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--    <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script>-->
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CRoboto+Condensed:300,400,500,600,700,800,900%7CRoboto:300,400,500,600,700,800,900">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block style %}
+  <style>
+    .neons {
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    .neons h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      -webkit-animation: glow 4s ease-in-out infinite alternate;
+      -moz-animation: glow 4s ease-in-out infinite alternate;
+      animation: glow 4s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        color: #fff;
+        text-shadow: 0 0 2px #e6321a5d, 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d;
+      }
+
+      to {
+        color: #fff;
+        text-shadow: 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d, 0 1 18px #e6321a36;
+      }
+    }
+
+    .UP {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+
+    .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 5px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+
+    .rd-navbar-fixed .rd-navbar-panel {
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background: #2ebbbb;
+    }
+
+    .rd-navbar-fixed .rd-navbar-nav {
+      display: inline-block;
+      margin: 15px 0;
+      height: auto;
+      text-align: left;
+      background: #2ebbbb;
+
+    }
+
+    .rd-navbar-nav {
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .rd-navbar-aside.rd-navbar-static .rd-navbar-nav {
+      padding: 10px 25px 25px 10px;
+      background-color: #2ebbbb;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      font-size: 18px;
+    }
+
+    .rd-navbar-nav a {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+
+
+    .navItem {
+      display: inline-block;
+      position: relative;
+      white-space: nowrap;
+
+    }
+
+    .dropdown-menu {
+      border: none;
+      padding: 0px 0px;
+      background-color: #2ebbbb;
+      color: white;
+      transition: .3s;
+    }
+
+    .dropdown-menu {
+      background-color: #2ebbbb;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      position: absolute;
+      min-width: 100%;
+      transition: .2s;
+    }
+
+    .navItem:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-item: {
+      display: block;
+      text-decoration: none;
+      padding: 8px;
+      color: #000;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(to bottom, #19d6d8 70%, #249595 100%);
+      border-radius: 8px;
+      transition: .5s;
+      color: #fff;
+      font-size: 24px;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+
+    }
+
+    .rightside11,
+    .leftside11 {
+      height: 430pt;
+      width: 100%;
+    }
+
+    .leftside,
+    .rightside {
+      height: 1030pt;
+      width: 95%;
+    }
+
+    .leftside {
+      padding: 0px;
+    }
+
+    .rightside {
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .upimg {
+      margin-right: 200px;
+    }
+
+    .footer {
+      position: absolute;
+      left: 5;
+      margin-left: 2px;
+      bottom: 0;
+      width: 100%;
+      height: 75px;
+      background-color: #44afaf;
+    }
+
+    .Right-side {
+      text-align: right;
+      color: #fff;
+      vertical-align: text-top;
+    }
+
+    .Right-text-right {
+      text-align: right;
+    }
+
+    /*CSS Add Profile Form*/
+    html {
+      height: 100%;
+    }
+
+    .login-box {
+      position: absolute;
+      top: 51%;
+      left: 50%;
+      width: 400px;
+      padding: 10px;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, .5);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+      border-radius: 10px;
+    }
+
+    .col-12 {
+      flex: 0 0 100%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 100%;
+      max-width: 100%;
+
+    }
+
+
+
+    .login-box h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+    }
+
+    .login-box .user-box {
+      position: relative;
+    }
+
+    .login-box .user-box input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
+
+    .login-box .user-box label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: .5s;
+    }
+
+    .login-box .user-box input:focus~label,
+    .login-box .user-box input:valid~label {
+      top: -20px;
+      left: 0;
+      color: #03e9f4;
+      font-size: 12px;
+    }
+
+    .login-box form a {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #03e9f4;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px
+    }
+
+    .login-box a:hover {
+      background: #03e8f46c;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #03e8f4a6,
+        0 0 25px #03e8f4a6,
+        0 0 50px #03e8f4a6,
+        0 0 100px #03e8f4a6;
+    }
+
+
+
+
+    /*END CSS Add Profile Form */
+
+    table {
+      width: 550PX;
+      border-spacing: 40px;
+    }
+  </style>
+  {% endblock %}
+</head>
+
+<body>
+  <div class="ie-panel"><a href="https://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+      <p>Loading...</p>
+    </div>
+  </div>
+  <div class="page">
+    <section class="section section-relative section-header bg-image" id="home"
+      style="background: url({% static 'images/bg-index1.png' %}); background-size: cover;">
+
+      <!--First part code-->
+      <section class="section context-dark section-jumbotron">
+        <div class="section-fullheight">
+          <div class="section-fullheight-inner section-md text-center text-lg-left">
+            <div class="container">
+              <div class="row justify-content-center justify-content-lg-start">
+                <!--Left side class-->
+                <div class="col">
+                  <div class="leftside11">
+                    <div class="jumbotron-custom-1">
+                      <div class="text-1 wow fadeInRight">
+                        <br />The first middle east country cares about the health of her people
+                      </div>
+
+                      <div class="container">
+                        <div class="neons col-12">
+                          <h1>EGYPT</h1>
+                          <h1>Protects<h1>
+                              <h1>Her People</h1>
+                        </div>
+                      </div>
+
+                      <p class="title-text wow fadeInRight">To Get Better Life You Must Change Your Mind</p>
+                    </div>
+                  </div>
+                </div>
+                <!--End OF left side class code-->
+                <!--Right side class code-->
+                <div class="col">
+                  <div class="rightside11">
+                    {% block Img1 %}
+
+                    <br>
+                    <font style="font-size: 30px; font-weight: bold;"></font>
+                    <img src="{% static 'images/AddProfile-1.png' %}" />
+
+                    {% endblock %}
+                  </div>
+                </div>
+                <!--End OF right side class code-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End Of First part code-->
+    </section>
+    {% block Section2 %}
+    <section class="bodyinline">
+      <div class="row justify-content-center justify-content-lg-start">
+
+
+        {% block Section2rightdiv %}
+        <!--Left right class-->
+        <div class="col">
+          <div class="leftside">
+
+            <!--Add Profile Form -->
+
+
+            <div class="login-box" style="background-color: #1d5357; height: 1000pt; width: 600px; padding-left: 15px;">
+              <h2>Add Profile</h2>
+              <form method="POST" action="{% url 'CitizenSave' %}" autocomplete="off">
+                {% csrf_token %}
+                <table cellpadding="15px">
+                  <tr>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="Fname" required="">
+                        <label>Full Name</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="PerID" required  value="{{PerNationalId}}">
+                        <label>National ID</label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="Jop" required="">
+                        <label>Your Job</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="user-box">
+                        <input list="Governorate" name="BrthGov" required="">
+                        <datalist id="Governorate">
+                          <option value="Cairo">
+                          <option value="Giza">
+                          <option value="Alexandria">
+                          <option value="New Valley">
+                          <option value="Matruh">
+                          <option value="Red Sea">
+                          <option value="South Sinai">
+                          <option value="North Sinai">
+                          <option value="Suez">
+                          <option value="Beheira">
+                          <option value="Sharqia">
+                          <option value="Dakahlia">
+                          <option value="Kafr el-Sheikh">
+                          <option value="Monufia">
+                          <option value="Minya">
+                          <option value="Gharbia">
+                          <option value="Faiyum">
+                          <option value="Qena">
+                          <option value="Asyut">
+                          <option value="Sohag">
+                          <option value="Ismailia">
+                          <option value="Beni Suef">
+                          <option value="Qalyubia">
+                          <option value="Aswan">
+                          <option value="Damietta">
+                          <option value="Port Said">
+                          <option value="Luxor">
+
+                        </datalist>
+                        <label>Birth Governorate</label>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <table cellpadding="15px">
+                  <!----- Date Of Birth -------------------------------------------------------->
+                  <tr style="display: inline-block;  color: teal;">
+                    <td style="color: white;">DATE OF BIRTH &nbsp;</td>
+
+                    <td>
+                      <input type="date" id="birthday" name="BirthDate" style="
+                        background-color: #2ebbbb;
+                        border: none;
+                        font-weight: bold;
+                        text-align: right;
+                        color: #ffffff;
+                        width: 220px;
+                        box-shadow:  0 0 5px #202020a6,
+                        0 0 10px #123436,
+                        0 0 10px #123436,
+                        0 0 10px #123436;
+                        height: 40px;
+                        border-radius: 15px;
+                        font-family:Bell MT;
+                        font-size: 25px;
+                        margin-left: 10px;
+                        ">
+                    </td>
+                  </tr>
+                  <!----- Date Of Birth -------------------------------------------------------->
+
+
+
+                </table>
+                <br>
+                <table cellpadding="15px">
+                  <tr style="color: #fff;">
+                    <td>
+                      <!-------------------------------Radio Button STaRT Code----------------------------------------->
+
+                      Gender: &nbsp;
+                      <input type="radio" id="male" name="Gender" value="Male" checked>
+                      <label for="male">Male</label>
+                      &nbsp;
+                      <input type="radio" id="female" name="Gender" value="Female">
+                      <label for="female">Female</label>
+
+                      <!-------------------------------Radio Button END Code------------------------------------------>
+                    </td>
+                    <td>
+                      <!--Username-->
+                      <div class="user-box">
+                        <input type="text" name="UserName" required="">
+                        <label>Username</label>
+                      </div>
+                    </td>
+
+                  <tr>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="Pass" required="">
+                        <label>Password</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="Re-password" required="">
+                        <label>Re-Password</label>
+                      </div>
+                    </td>
+                  </tr>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="FNo" required="">
+                        <label>First Phone Number</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="SNo" required="">
+                        <label>Second Phone Number</label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-box">
+                        <input type="email" name="Email" required="">
+                        <label>Email</label>
+                      </div>
+                    </td>
+
+
+
+                    <td>
+                      <!--Passport-->
+                      <div class="user-box">
+                        <input type="text" name="Passport" required="">
+                        <label>Passport Number</label>
+                      </div>
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      <div class="user-box">
+                        <input list="Governorate" name="CurrentGov" required="">
+                        <datalist id="Governorate">
+                          <option value="Cairo">
+                          <option value="Giza">
+                          <option value="Alexandria">
+                          <option value="New Valley">
+                          <option value="Matruh">
+                          <option value="Red Sea">
+                          <option value="South Sinai">
+                          <option value="North Sinai">
+                          <option value="Suez">
+                          <option value="Beheira">
+                          <option value="Sharqia">
+                          <option value="Dakahlia">
+                          <option value="Kafr el-Sheikh">
+                          <option value="Monufia">
+                          <option value="Minya">
+                          <option value="Gharbia">
+                          <option value="Faiyum">
+                          <option value="Qena">
+                          <option value="Asyut">
+                          <option value="Sohag">
+                          <option value="Ismailia">
+                          <option value="Beni Suef">
+                          <option value="Qalyubia">
+                          <option value="Aswan">
+                          <option value="Damietta">
+                          <option value="Port Said">
+                          <option value="Luxor">
+
+                        </datalist>
+                        <label>Current Governorate</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="CurrentAdd" required="">
+                        <label>Current Address</label>
+                      </div>
+                    </td>
+                  </tr>
+
+                </table>
+                <table cellpadding="15px">
+                  <tr>
+                    <h4 style="text-align: center; color: #fff; font-weight: bold;">Relatives Information</h4><br>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="FRelName" required="">
+                        <label>Name Of Your First Relative</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="FRelNo" required="">
+                        <label>Phone Of Your First Relative</label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="SRelName" required="">
+                        <label>Name Of Your Second Relative</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="user-box">
+                        <input type="text" name="SRelNo" required="">
+                        <label>Phone Of Your Second Relative</label>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <center>
+                  <button style="background: transparent; border: none;" type="submit">
+
+                    <span></span><span></span><span></span><span></span>
+                    <font style="color: #03e9f4;"> Save </font>
+
+                  </button>
+                </center>
+              </form>
+            </div>
+            <!--Add Profile Form End-->
+          </div>
+        </div>
+        <!--End OF right side class code-->
+        {% endblock %}
+        {% block Section2leftdiv %}
+        <!--left side class code-->
+        <div class="col" style="background-color: #ffffff;">
+          <div class="rightside ">
+            <br>
+            Must Enter The Required Data
+            <br><br><br>
+            <img src="{% static 'images/AddProfile-2.png' %}" />
+          </div>
+        </div>
+        <!--End OF left side class code-->
+        {% endblock %}
+      </div>
+
+
+
+
+    </section>
+    {% endblock %}
+
+    <section>
+      <div class="up">
+
+
+      </div>
+    </section>
+  </div>
+  <div class="snackbars" id="form-output-global"></div>
+  <script src="{% static 'js/core.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- coded by Starlight-->
+
+  <!--LIVEDEMO_00 -->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7078796-5']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') +
+        '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body><!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0"
+    width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-P9FT69');
+</script><!-- End Google Tag Manager -->
+
+</html>

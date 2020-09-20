@@ -1,0 +1,797 @@
+<!-- Price box minimal-->
+<!DOCTYPE html>
+{% extends '../base.html' %}
+{% load static %}
+<html class="wide wow-animation" lang="en">
+
+<head>
+  {% block title %} Laboratory Add Remove Analyst{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CRoboto+Condensed:300,400,500,600,700,800,900%7CRoboto:300,400,500,600,700,800,900">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block style %}
+  <style>
+    .neons {
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    .neons h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      -webkit-animation: glow 4s ease-in-out infinite alternate;
+      -moz-animation: glow 4s ease-in-out infinite alternate;
+      animation: glow 4s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        color: #fff;
+        text-shadow: 0 0 2px #e6321a5d, 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d;
+      }
+
+      to {
+        color: #fff;
+        text-shadow: 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d, 0 1 18px #e6321a36;
+      }
+    }
+
+    .UP {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+
+    .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 5px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+
+    .rd-navbar-fixed .rd-navbar-panel {
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background: #2ebbbb;
+    }
+
+    .rd-navbar-fixed .rd-navbar-nav {
+      display: inline-block;
+      margin: 15px 0;
+      height: auto;
+      text-align: left;
+      background: #2ebbbb;
+
+    }
+
+    .rd-navbar-nav {
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .rd-navbar-aside.rd-navbar-static .rd-navbar-nav {
+      padding: 10px 25px 25px 10px;
+      background-color: #2ebbbb;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      font-size: 18px;
+    }
+
+    .rd-navbar-nav a {
+      font-size: 17px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+
+    .navItem {
+      display: inline-block;
+      position: relative;
+      white-space: nowrap;
+
+    }
+
+    .dropdown-menu {
+      border: none;
+      padding: 0px 0px;
+      background-color: #2ebbbb;
+      color: white;
+      transition: .3s;
+    }
+
+    .dropdown-menu {
+      background-color: #2ebbbb;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      position: absolute;
+      min-width: 100%;
+      transition: .2s;
+    }
+
+    .navItem:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-item {
+      display: block;
+      text-decoration: none;
+      padding: 8px;
+      color: #000;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(to bottom, #19d6d8 70%, #249595 100%);
+      border-radius: 8px;
+      transition: .5s;
+      color: #fff;
+      font-size: 24px;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+
+    }
+
+    .upimg {
+      margin-right: 200px;
+    }
+
+    .footer {
+      position: absolute;
+      left: 5;
+      margin-left: 2px;
+      bottom: 0;
+      width: 100%;
+      height: 75px;
+      background-color: #44afaf;
+    }
+
+    .Right-side {
+      text-align: right;
+      color: #fff;
+      vertical-align: text-top;
+    }
+
+    .Right-text-right {
+      text-align: right;
+    }
+
+    /*CSS Add Profile Form*/
+    html {
+      height: 100%;
+    }
+
+    .login-box {
+      position: absolute;
+      top: 67%;
+      left: 50%;
+      width: 400px;
+      padding: 40px;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, .5);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+      border-radius: 10px;
+    }
+
+    .col-12 {
+      flex: 0 0 100%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 100%;
+      max-width: 100%;
+
+    }
+
+
+
+    .login-box h3 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .login-box .user-box {
+      position: relative;
+    }
+
+    .login-box .user-box input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
+
+    .login-box .user-box label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: .5s;
+    }
+
+    .login-box .user-box input:focus~label,
+    .login-box .user-box input:valid~label {
+      top: -20px;
+      left: 0;
+      color: #03e9f4;
+      font-size: 12px;
+    }
+
+    .login-box form a {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #03e9f4;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px
+    }
+
+    .login-box a:hover {
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 35px;
+      color: #2ebbbb;
+      cursor: pointer;
+      transition: .5s;
+    }
+
+    .login-box a span {
+      position: absolute;
+      display: block;
+    }
+
+    .login-box a span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #03e9f4);
+      animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+
+      50%,
+      100% {
+        left: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, #03e9f4);
+      animation: btn-anim2 1s linear infinite;
+      animation-delay: .25s
+    }
+
+    @keyframes btn-anim2 {
+      0% {
+        top: -100%;
+      }
+
+      50%,
+      100% {
+        top: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(270deg, transparent, #03e9f4);
+      animation: btn-anim3 1s linear infinite;
+      animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+      0% {
+        right: -100%;
+      }
+
+      50%,
+      100% {
+        right: 100%;
+      }
+    }
+
+    .login-box a span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, #03e9f4);
+      animation: btn-anim4 1s linear infinite;
+      animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+      0% {
+        bottom: -100%;
+      }
+
+      50%,
+      100% {
+        bottom: 100%;
+      }
+    }
+
+    /*END CSS Add Profile Form */
+    .formbody {
+      height: 750pt;
+    }
+
+    /*--------------------Table CSS------------------------*/
+
+    #tableheader {
+      font-family: arial;
+      font-size: 25px;
+      font-weight: bold;
+      color: honeydew;
+      position: fixed;
+    }
+
+    #div2 {
+      height: 400px;
+      width: 1220px;
+      overflow: auto;
+      overflow-x: auto;
+    }
+
+    #table2 {
+      text-align: center;
+      font-family: arial;
+      width: 1200px;
+      color: rgb(0, 0, 0);
+      padding: 0px;
+    }
+
+    #tableheader th {
+      width: 300px;
+      height: 50px;
+      padding: 0px;
+      background-color: #1d7575;
+      border-bottom: 5px solid #1d5357;
+      border-right: 5px solid #1d5357;
+      border-top: 5px solid #1d5357;
+    }
+
+    #table2 td {
+      height: 50px;
+      padding: 5px;
+      width: 300px;
+      font-size: 30px;
+      border-bottom: 5px solid #1d5357;
+      border-right: 5px solid #1d5357;
+      border-radius: 30px;
+      background-color: #7de9e9;
+
+    }
+
+    #table2 tr:hover td {
+      background-color: #0affffd2;
+      cursor: pointer;
+    }
+
+    #tableheader,
+    #table2 {
+      text-align: center;
+    }
+
+    .btn {
+      border: none;
+      background-color: #2ebbbb;
+      padding: 14px 28px;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 25px;
+      display: inline-block;
+    }
+
+    /* On mouse-over */
+    .btn:hover {
+      background: #7de9e9;
+    }
+
+    .default {
+      color: white;
+      font-weight: bold;
+    }
+
+    .btn2 {
+      border: none;
+      font-size: 20px;
+      background-color: #2ebbbb;
+      border-radius: 25px;
+      padding: 14px 28px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    /* On mouse-over */
+    .btn2:hover {
+      background: #7de9e9;
+    }
+
+    .default2 {
+      color: white;
+      font-weight: bold;
+    }
+
+    .btn3 {
+      border: none;
+      font-size: 20px;
+      background-color: #2ebbbb;
+      border-radius: 25px;
+      padding: 14px 28px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    /* On mouse-over */
+    .btn2:hover {
+      background: #7de9e9;
+    }
+
+    .default3 {
+      color: white;
+      font-weight: bold;
+    }
+
+    ::placeholder {
+      color: white;
+    }
+    .alert{
+  background: #3de06c;
+  color: rgb(206, 15, 15);
+  font-size: 25px;
+      width: 450px;
+  text-align: center;
+  margin-left: 5px;
+  margin-top: 9px;
+  font-weight: bold;
+  border-radius: 25px;
+  
+}
+  </style>
+  {% endblock %}
+  {% block script %}
+  <script>
+    function myFunction() {
+      var x = document.getElementById("SyndicateIDField");
+      var y = document.getElementById("SaveBtn");
+      if (y.style.display === "none") {
+        y.style.display = "block";
+        x.style.visibility = " visible";
+      } else {
+        y.style.display = "none";
+        x.style.visibility = "hidden";
+      }
+    }
+  </script>
+  {% endblock %}
+</head>
+
+<body>
+  <div class="ie-panel"><a href="https://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+      <p>Loading...</p>
+    </div>
+  </div>
+  <div class="page">
+    <section class="section section-relative section-header bg-image" id="home"
+      style="background: url({% static 'images/bg-index1.png' %}); background-size: cover;">
+
+
+      <!--First part code-->
+      <section class="section context-dark section-jumbotron">
+        <div class="section-fullheight">
+          <div class="section-fullheight-inner section-md text-center text-lg-left">
+            <div class="container">
+              <div class="row justify-content-center justify-content-lg-start">
+                <!--Left side class-->
+                <div class="col">
+                  <div class="leftside11">
+                    <div class="jumbotron-custom-1">
+                      <div class="text-1 wow fadeInRight">
+                        <br />The first middle east country cares about the health of her people
+                      </div>
+
+                      <div class="container">
+                        <div class="neons col-12">
+                          <h1>EGYPT</h1>
+                          <h1>Protects<h1>
+                              <h1>Her People</h1>
+                        </div>
+                      </div>
+
+                      <p class="title-text wow fadeInRight">To Get Better Life You Must Change Your Mind</p>
+                    </div>
+                  </div>
+                </div>
+                <!--End OF left side class code-->
+                <!--Right side class code-->
+                <div class="col">
+                  <div class="rightside11">
+                    {% block Img1 %} <br><br>
+                    <img src="{% static 'images/EditProfile-1.png' %}" />
+                    {% endblock %}
+                  </div>
+                </div>
+                <!--End OF right side class code-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End Of First part code-->
+    </section>
+
+
+
+    <div>
+      {% block Section2 %}
+      <section class="bodyinline">
+
+
+
+        <div class="formbody">
+          <br><br>
+
+          <!--Add Profile Form-->
+
+          <div class="login-box" style="background-color: #1d5357; height: 700pt; width: 100%; padding-left: 15px;">
+            <h3>Add & Remove Analysts</h3>
+
+
+            <table style="text-align: center; font-weight: bold; color: #fff;">
+              <tr>
+                <td>Laboratory Name <br>
+                  <input style="text-align: center; border-radius: 15px;" type="text" value="{{LabData.LabName}}" maxlength="0">
+                </td>
+                <td>Laboratory Type <br>
+                  <input style="text-align: center; border-radius: 15px;" type="text" value="{{LabData.LabType}}" maxlength="0">
+                </td>
+                <td>Laboratory Governorate <br>
+                  <input style="text-align: center; border-radius: 15px;" type="text" value="{{LabData.LabGov}}" maxlength="0">
+                </td>
+                <td>Laboratory City <br>
+                  <input style="text-align: center; border-radius: 15px;" type="text" value="{{LabData.CurrentAddress}}" maxlength="0">
+                </td>
+              </tr>
+            </table>
+            <br>
+            <!------------------------------------------------------>
+            <div id="div2">
+              <table id="table2">
+                <tr id="tableheader">
+                  <th>Analyst National ID</th>
+                  <th>Analyst Name</th>
+                  <th>Specialization 1</th>
+                  <th>Specialization 2</th>
+                </tr>
+                <tr>
+                  <td style="background-color: #1d5357;"></td>
+                  <td style="background-color: #1d5357;"></td>
+                  <td style="background-color: #1d5357;"></td>
+                  <td style="background-color: #1d5357;"></td>
+                </tr>
+                {% for GetData in TableData %}
+                <tr>
+                  <td>{{GetData.AnalystNationalId}}</td>
+                  <td>{{GetData.AnalystName}}</td>
+                  <td>{{GetData.Specialization1}}</td>
+                  <td>{{GetData.Specialization2}}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+            <br><br>
+            <div>
+              <table style="width: 95%;">
+                <tr>
+                  <form id="Div" action="RemoveAnalyst" method="POST">
+                    {% csrf_token %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert {{message.tags}} m2" id="msg" role="alert">
+                      {{message}}
+                    </div>
+
+                    {% endfor %}
+                    {% endif %}
+                    <script>
+                      setTimeout(function () {
+                        if ($('#msg').length > 0) {
+                          $('#msg').remove();
+                        }
+                      }, 9000)
+                    </script>
+                    <td>
+                      <center style="color: #fff;text-align: center;font-size: 35px;font-weight: bold;">
+                        <input type="text" name="ShowDocId" id="ShowDocId" style="display: none;">
+                        <input type="text" name="ShowDocName" id="ShowDocName" style="display: none;" >
+                      </center>
+                      
+                    </td>
+                  </form>
+                  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+                <script>
+                  
+                  $(document).ready(function(){
+                    var Docname1 = document.getElementById("ShowDocName").value;
+                    
+                    if(Docname1 != ""){
+                      
+                    }
+
+                    $("#btnAlertMessage").click( function() {
+                        var Docname = document.getElementById("ShowDocName").value;
+                        if(Docname == ""){
+                        alert("select Doctor First")
+                        
+                        }else{                 
+                      swal({
+                        title :"Warning !",
+                        text : "Are You Want To Remove Doctor : " + Docname,
+                        type: 'warning',
+                        showCancelButton : true,
+                        confirmButtonClass : "btn-danger",
+                        confirmButtonText : "Yes, Delete The Doctor",
+                        cancelButtonText : "No, Dont Delete",
+                        closeOnConfirm : false,
+                        closeOnCancel : false
+                      },
+                      function(isConfirm){
+                        if(isConfirm){
+                            document.getElementById("Div").submit();
+                          swal("Deleted","Doctor Deleted Succesfully", "success","#");
+                            
+                        }else{
+                          swal("Canceled", "Doctor Doesn't Deleted", "error")
+                        }
+                      });
+
+                        }   
+                    });
+
+                    
+                  });
+                </script>
+                
+                  <td>
+                    <input class="btn default"   type="button" value="Remove Selected Analyst" name="alertMessage" id="btnAlertMessage"/>
+                    <button onclick="myFunction()" class="btn2 default2" style="width: 180px;">Add Analyst</button>
+                  </td>
+                  <form action="AddlabAnalyst" method="POST">
+                    {% csrf_token %}
+                    <td>
+                    <input type="text" name="AddAnalystId" id="SyndicateIDField"
+                      style="visibility: hidden; border-radius: 25px; font-size: 20px; background-color: #2ebbbb;font-weight: bold; color: white;width: 190pt; height: 50px;text-align: center; "
+                      placeholder="Analyst ID">
+                  </td>
+                  <td>
+                    <button id="SaveBtn" style="display: none;" class="btn2 default3" type="submit">Save</button>
+                  </td>
+                  </form>
+                </tr>
+              </table>
+              <script>
+                var table2 = document.getElementById('table2'),
+                  rIndex;
+                for (var i = 0; i < table2.rows.length; i++) {
+                  table2.rows[i].onclick = function () {
+                    rIndex = this.rowIndex;
+                    document.getElementById("ShowDocId").value = this.cells[0].innerHTML;
+                    document.getElementById("ShowDocName").value = this.cells[1].innerHTML;
+                  };
+                }
+              </script>
+            </div>
+
+          </div>
+        </div>
+
+        <!--Add Profile Form End-->
+        <br><br><br>
+
+      </section>
+
+      {% endblock %}
+    </div>
+
+
+
+    <section>
+      <div class="up">
+
+
+      </div>
+    </section>
+  </div>
+  <div class="snackbars" id="form-output-global"></div>
+  <script src="{% static 'js/core.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- coded by Starlight-->
+
+  <!--LIVEDEMO_00 -->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7078796-5']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') +
+        '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body><!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0"
+    width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-P9FT69');
+</script><!-- End Google Tag Manager -->
+
+</html>

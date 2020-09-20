@@ -1,0 +1,1081 @@
+GetAnalystCode= request.POST['AnalystCode'] 
+  GetPasswordLogin = request.POST['password']
+  request.session['GetAnalystCode__se'] = request.POST['AnalystCode'] 
+  try:
+    print(str (GetPasswordLogin))
+    Fetch_data = models.MedicalAnalystLicense.objects.get(AnalystCode=GetAnalystCode, Password=GetPasswordLogin)
+    print(GetPasswordLogin)
+    print('Analyst id after add form AddAnalyst-------->' + (GetAnalystCode))    
+    try:
+      CheckifExist= models.Analyst.objects.get(AnalystCode=GetAnalystCode)
+      Fetch_id =  models.Analyst.objects.get(AnalystCode=GetAnalystCode)
+      print('-------------<< Analyst Already Added Before >>---------------------')
+      messages.success(request, 'You Are Already Exist On SyStem!')
+      return render(request,'Doctor/AnalystEdit.html', {'Show':Fetch_id ,'DBPass': Fetch_id.Password, 'AnalystCode':GetAnalystCode})
+    except:
+      print('-------------<< Analyst Not Exist in Analyst table Login Done >>---------------------')
+      National_ID_From_PersonalData = models.PersonalData.objects.get(PerNationalId=Fetch_data.NationalId)
+      print('-------------<< Analyst Not Exist in Analyst table Login Done >>---------------------')
+      return render(request,'Doctor/AnalystAdd.html', {'Show_data':Fetch_data, 'Show_Name':National_ID_From_PersonalData})
+  except:
+    print('------------------------You Are Not Alowed Not Exist in Ministry------------------------')
+    messages.success(request, 'Login Field !')
+    return render(request,'Doctor/AnalystAddLogin.html', {})
+
+
+
+
+
+
+function getAge(dateString) {
+                var now = new Date();
+                var today = new Date(now.getYear(),now.getMonth(),now.getDate());
+                var yearNow = now.getYear();
+                var monthNow = now.getMonth();
+                var dateNow = now.getDate();
+                var dob = new Date(dateString.substring(6,10),
+                                    dateString.substring(0,2)-1,                   
+                                    dateString.substring(3,5)                  
+                                    );
+                var yearDob = dob.getYear();
+                var monthDob = dob.getMonth();
+                var dateDob = dob.getDate();
+                var age = {};
+                var ageString = "";
+                var yearString = "";
+                var monthString = "";
+                var dayString = "";
+
+                yearAge = yearNow - yearDob;
+                if (monthNow >= monthDob)
+                    var monthAge = monthNow - monthDob;
+                else {
+                    yearAge--;
+                    var monthAge = 12 + monthNow -monthDob;
+                }
+                if (dateNow >= dateDob)
+                    var dateAge = dateNow - dateDob;
+                else {
+                    monthAge--;
+                    var dateAge = 31 + dateNow - dateDob;
+                    if (monthAge < 0) {
+                    monthAge = 11;
+                    yearAge--;
+                    }
+                }
+                age = {
+                    years: yearAge,
+                    months: monthAge,
+                    days: dateAge
+                    };
+                if ( age.years > 1 ) yearString = " years";
+                else yearString = " year";
+                if ( age.months> 1 ) monthString = " months";
+                else monthString = " month";
+                if ( age.days > 1 ) dayString = " days";
+                else dayString = " day";
+
+                if ( (age.years > 0) && (age.months > 0) && (age.days > 0) )
+                    ageString = age.years + yearString + ", " + age.months + monthString + ", and " + age.days + dayString + " old.";
+                else if ( (age.years == 0) && (age.months == 0) && (age.days > 0) )
+                    ageString = "Only " + age.days + dayString + " old!";
+                else if ( (age.years > 0) && (age.months == 0) && (age.days == 0) )
+                    ageString = age.years + yearString + " old. Happy Birthday!!";
+                else if ( (age.years > 0) && (age.months > 0) && (age.days == 0) )
+                    ageString = age.years + yearString + " and " + age.months + monthString + " old.";
+                else if ( (age.years == 0) && (age.months > 0) && (age.days > 0) )
+                    ageString = age.months + monthString + " and " + age.days + dayString + " old.";
+                else if ( (age.years > 0) && (age.months == 0) && (age.days > 0) )
+                    ageString = age.years + yearString + " and " + age.days + dayString + " old.";
+                else if ( (age.years == 0) && (age.months > 0) && (age.days == 0) )
+                    ageString = age.months + monthString + " old.";
+                else ageString = "Oops! Could not calculate age!";
+                return ageString;
+                }
+
+                alert(getAge('12/05/1989'));
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+Citizen   Model
+-------------------
+PerNationalId = PerID,
+UserName =  UserName,
+Password =  Pass,
+
+  # path('CenterUpgradeData/', CenterUpgradeData, name='CenterUpgradeData'),
+
+
+
+
+
+
+
+
+
+
+
+'''
+import cgi
+form = cgi.FieldStorage()
+message = form.getvalue("message_py")
+
+CenterId =  request.POST['MCentercode']  
+print('center id before add -------->' + str(CenterId))
+
+
+<form method="POST" action="{% url 'CenterChooseOption'  %}" autocomplete="off">
+                  {% csrf_token %}
+
+</form>
+
+            <div class="user-box">
+              <input type="text" name="username" required="">
+              <label>UserName</label>
+            </div> 
+#---------------------------------------------------------
+def CenterChoose(request):  
+  GetCenterCode= request.POST['MCentercode'] 
+  request.session['GetCenterCode_se'] = GetCenterCode
+  print('center id after add -------->' + str(GetCenterCode))
+  return render(request,'MedicalCenter/CenterChooseOption.html', {})
+#---------------------------------------------------------
+
+def CenterUpgrade(request, CenterEditProfileLogin, Code):   
+  GetCenterCode  =  request.session['GetCenterCode_se']
+  print('center id after add form CenterUpgrade-------->' + str(GetCenterCode))
+  return render(request,'MedicalCenter/CenterUpdateData.html',{'Center_Code':Code})
+
+def CenterUpgradeData(request,Code):
+  GetCenterCode  =  request.session['GetCenterCode_se']
+  print('center id after add form CenterUpgradeData-------->' + str(GetCenterCode))
+  return render(request,'MedicalCenter/CenterUpdateData.html',{'Center_Code':Code})
+'''
+
+PersonalData  Model
+-------------------
+FullName = Fname
+Gender  =   Gender
+Job     =    Jop
+BirthGov   = BrthGov
+CurrentGov  = CurrentGov
+CurrentAddress = CurrentAdd
+FirstPhone =  FNo
+SecoundPhone = SNo
+Email    =      Email
+FirstRelName  = FRelName
+FirstRelPhone = FRelNo
+SecoundRelName=  SRelName
+SecoundRelPhone = SRelNo
+PassportNo =   Passport
+BloodGroup
+PerNationalId = PerID
+BirthDate  = BirthDate
+
+Doctor  Model
+--------------
+SynCode
+Password
+
+
+  newCit = models.Citizen(
+    PerNationalId = PerID,
+    UserName =  UserName,
+    Password =  Pass,
+  )
+  newCit.save()
+
+
+  newPer = models.PersonalData(
+    FullName = Fname,
+    Gender  =   Gender,
+    Job     =    Jop,
+    BirthGov   = BrthGov,
+    CurrentGov  = CurrentGov,
+    CurrentAddress = CurrentAdd,
+    FirstPhone =  FNo,
+    SecoundPhone = SNo,
+    Email    =      Email,
+    FirstRelName  = FRelName,
+    FirstRelPhone = FRelNo,
+    SecoundRelName =  SRelName,
+    SecoundRelPhone = SRelNo,
+    PassportNo =   Passport,
+    PerNationalId = PerID,
+    BirthDate  = BirthDate,
+  )
+  newPer.save()
+
+
+
+
+
+  .login-box form button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+  }
+
+
+  .login-box form button:hover {
+  background: #03e8f46c;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e8f4a6,
+              0 0 25px #03e8f4a6,
+              0 0 50px #03e8f4a6,
+              0 0 100px #03e8f4a6;
+  }
+
+  .login-box form button span {
+  position: absolute;
+  display: block;
+  }
+
+  
+
+.login-box form button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box form button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box form button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box form button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+
+<form method="POST" action="{%
+    url 'CenterRegisteredSave' %}" 
+    auto-complete="off" >
+      {% csrf_token %}
+ <button class="myButton" type="submit"> Save Password</button>
+	, CenterUpdataDataRequest
+  'CenterUpdataDataRequest'
+
+  
+Full texts	
+CenterCode
+----------------------------------------------------------
+    path('CenterUpdataDataRequest/<int:CenterCode>/', CenterUpdataDataRequest, name='CenterUpdataDataRequest'),
+----------------------------------------------------------
+Center_Code = request.POST['CenterCode']
+  Password = request.POST['Password']
+  CenterName = request.POST['CenterName']
+  CenterGov = request.POST['CenterGov']
+  CurrentAddress= request.POST['CurrentAddress']
+  FirstPhone= request.POST['FirstPhone']
+  SecoundPhone= request.POST['SecoundPhone']
+  newCenter = models.MedicalCenter(
+    CenterCode = id,
+    Password  =  Password,
+    CenterName  =   CenterName,
+    CenterGov  =  CenterGov,
+    CurrentAddress  =  CurrentAddress,
+    FirstPhone  =  FirstPhone,
+    SecoundPhone  =  SecoundPhone,
+  )
+  newCenter.save()
+  return render(request,'home.html', {})
+
+----------------------------------------------------------
+
+  
+Full texts	
+CenterCode
+  MedicalCenter
+  CenterCode =  CenterCode,
+  Password  =  Password,
+  CenterName  =   CenterName,
+  CenterGov  =  CenterGov,
+  CurrentAddress  =  CurrentAddress,
+  FirstPhone  =  FirstPhone,
+  SecoundPhone  =  SecoundPhone,
+
+  <form method="POST" action="{% url '' %}"  autocomplete="off" >
+  {% csrf_token %}
+  
+LabRegisteredSave
+
+<center>
+    <button style="background: transparent; border: none;" type="submit">
+        <span></span><span></span><span></span><span></span>
+        <font style="color: #03e9f4;"> Submit  </font>             
+    </button>
+  </center>
+
+laboratory
+  LabCode =  LabCode,
+  LabName	=  LabName,
+  LabPassword	= LabPassword ,
+  LabGov	=   LabGov,
+  CurrentAddress	=  CurrentAddress,
+  FirstPhone	= FirstPhone ,
+  SecoundPhone	=  SecoundPhone,
+  Date	=  ,
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+def CenterUpgrade(request,Code):
+  return render(request,'MedicalCenter/CenterUpdateData.html',{'Center_Code':Code})
+
+
+def CenterUpdataDataRequest(request,id):  
+  Center_Code = request.POST['CenterCode']
+  Password = request.POST['Password']
+  CenterName = request.POST['CenterName']
+  CenterGov = request.POST['CenterGov']
+  CurrentAddress= request.POST['CurrentAddress']
+  FirstPhone= request.POST['FirstPhone']
+  SecoundPhone= request.POST['SecoundPhone']
+  newCenter = models.MedicalCenter(
+    CenterCode = id,
+    Password  =  Password,
+    CenterName  =   CenterName,
+    CenterGov  =  CenterGov,
+    CurrentAddress  =  CurrentAddress,
+    FirstPhone  =  FirstPhone,
+    SecoundPhone  =  SecoundPhone,
+  )
+  newCenter.save()
+  return render(request,'home.html', {})
+-----------------------------------------------------------------------------
+
+    path('CenterEditProfileLogin/CenterChooseOption/CenterUpdateData/CenterUpgrade/<int:Code>/', CenterUpgrade, name='CenterUpgrade'),
+   , CenterUpgrade
+ path('CenterUpdataDataRequest/<int:id>',CenterUpdataDataRequest, name='CenterUpdataDataRequest'),
+ , CenterUpdataDataRequest
+ -----------------------------------------------------------------------------
+ {% url 'CenterUpgrade' Center_Code %}
+
+
+
+   MCCode= request.POST['MCentercode']
+  MCPass= request.POST['MCenterpassword']
+  if models.MedicalCenter( CenterCode = MCCode, Password =  MCPass ):
+    return render(request,'MedicalCenter/CenterChooseOption.html', {'MCentercode':Code})
+  else:
+    return render(request,'MedicalCenter/CenterEditProfileLogin.html', {})
+
+
+
+    
+def CenterUpgrade(request,Code):
+  return render(request,'MedicalCenter/CenterUpdateData.html',{'Center_Code':Code})
+
+-----------------------------------------------------------------------------
+<script>
+              function checkpassword()
+              {
+                var p = f.Pass1.value;
+                var cp = f.Pass2.value;
+                if (p==cp)
+                "{% url 'DocEditSave' %}"
+                else
+                alert ("password Doesnt Match")
+              }
+            </script>
+
+
+Full texts	
+id
+WorkOnDate
+CenterCode_id
+
+SynCode
+
+
+Full texts	
+SynCode
+NationalId
+
+
+WorkOnDate
+RemoveDate
+CenterCode	
+
+
+
+
+
+
+Full texts	
+id
+WorkOnDate
+CenterCode_id
+SynCode
+
+-----------------------------------------------------------------------------
+
+
+class Citizen(models.Model):
+    PerNationalId= models.BigIntegerField(
+        primary_key=True,
+        
+        )
+    UserName= models.CharField(
+        max_length=50,
+        null=False,
+    )
+    Password= models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+class PersonalData(models.Model):
+    FullName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+    Gender= models.CharField(
+        max_length=10,
+        null=False,
+    )
+    Job = models.CharField(
+        max_length=50,
+        null=False,
+    )
+    BirthGov= models.CharField(
+        null=False,
+        max_length=40,
+    )
+    BirthDate= models.DateField(
+        null=True,
+        
+    )
+    CurrentGov= models.CharField(
+        null=False,
+        max_length=40,
+    )
+    CurrentAddress=models.CharField(
+        null=False,
+        max_length=120, 
+    )
+    FirstPhone=models.BigIntegerField(
+        null=False,
+        
+        )
+    SecoundPhone= models.BigIntegerField(
+        null=False,
+        
+    )
+    Email= models.EmailField(
+        null=False,
+        max_length=60,
+    )
+    FirstRelName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+    FirstRelPhone=models.BigIntegerField(
+        null=False,
+        
+        )
+    SecoundRelName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+    SecoundRelPhone= models.BigIntegerField(
+        null=False,
+        
+    )
+    PassportNo=models.BigIntegerField(
+        null=True,
+        
+    )
+    BloodGroup=models.CharField(
+        null=True,
+        max_length=5,
+    )
+    Date=models.DateTimeField(
+        auto_now_add=True,
+        null=False,
+    )
+    PerNationalId=models.ForeignKey(Citizen,
+     on_delete=models.PROTECT)
+
+class Doctor(models.Model):
+    SynCode=models.BigIntegerField(
+        
+        primary_key=True,
+    )
+    Password=models.CharField(
+        max_length=60,
+        null=False,
+    )    
+    Date=models.DateTimeField(
+        auto_now_add=True,
+        null=False,
+    )
+
+class MedicalCenter(models.Model):
+    CenterCode= models.BigIntegerField(
+        primary_key=True,
+        
+    )    
+    Password=models.CharField(
+        max_length=60,
+        null=False,
+    )  
+    CenterName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+    CenterGov= models.CharField(
+        null=False,
+        max_length=40,
+    )
+    CurrentAddress=models.CharField(
+        null=False,
+        max_length=120, 
+    )
+    FirstPhone=models.BigIntegerField(
+        null=False,        
+    )
+    SecoundPhone= models.BigIntegerField(
+        null=False,        
+    )
+    RegisteredDate=models.DateTimeField(
+        auto_now_add=True,
+        null=True,
+    )
+    UpdateDate=models.DateTimeField(
+        auto_now=True,
+        null=True,
+    )
+
+class DocWorkOnCenter(models.Model):
+    SynCode=models.ForeignKey(Doctor,
+     on_delete=models.PROTECT)
+    CenterCode=models.ForeignKey(MedicalCenter,
+     on_delete=models.PROTECT)
+    WorkOnDate=models.DateTimeField(
+        auto_now_add=True,
+        null=False,
+    )
+
+class DocWorkOnCenterHistory(models.Model):
+    SynCode=models.CharField(
+        max_length=30,
+        null=False,
+    )
+    CenterCode=models.ForeignKey(MedicalCenter,
+     on_delete=models.PROTECT)
+    WorkOnDate=models.DateTimeField(
+        auto_now_add=True,
+        null=False,
+    )
+    RemoveDate=models.DateTimeField(
+        null=True,
+    )
+
+class DoctorPerson(models.Model):    
+    SynCode=models.ForeignKey(Doctor,
+     on_delete=models.PROTECT)
+    
+    PerNationalId=models.ForeignKey(Citizen,
+     on_delete=models.PROTECT)
+
+    CurrentTime=models.DateTimeField(        
+        auto_now_add=True,
+        null=False,
+    )
+class PersonMedicalCenter(models.Model):    
+    CenterCode=models.ForeignKey(MedicalCenter,
+     on_delete=models.PROTECT)
+    
+    PerNationalId=models.ForeignKey(Citizen,
+     on_delete=models.PROTECT)
+
+    CurrentTime=models.DateTimeField(        
+        auto_now_add=True,
+        null=False,
+    )
+
+class  MedicalHistory (models.Model):
+    CurrentTime=models.DateTimeField(        
+        auto_now_add=True,
+        null=False,
+    )
+
+    PerNationalId=models.ForeignKey(Citizen,
+     on_delete=models.PROTECT)
+    
+    SynCode=models.CharField(
+        max_length=30,
+        null=False,
+    )
+
+    CenterCode=models.CharField(
+        max_length=30,
+        null=False,
+    )
+
+    CenterName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    RecordDate=models.DateTimeField(        
+        auto_now_add=True,
+        null=False,
+    )
+    MedicalReport=models.TextField(
+        null=True,
+    )
+
+    Treatment=models.TextField(
+        null=True,
+    )
+
+    LabCode=models.CharField(
+        max_length=30,        
+        null=False,
+    )
+
+    LabName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    AnalysisReport=models.TextField(
+        null=True,
+    )
+
+    RaysReport=models.TextField(
+        null=True,
+    )
+
+class Laboratory(models.Model):
+    LabCode=models.BigIntegerField(
+        
+        primary_key=True,
+    )
+
+    LabName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    LabPassword=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    LabGov= models.CharField(
+        null=False,
+        max_length=40,
+    )
+
+    CurrentAddress=models.CharField(
+        null=False,
+        max_length=120, 
+    )
+
+    FirstPhone=models.BigIntegerField(
+        null=False,
+        
+        )
+
+    SecoundPhone= models.BigIntegerField(
+        null=False,
+        
+    )
+
+    Date=models.DateTimeField(
+        auto_now_add=True,
+        null=False,
+    )
+
+class AnalystLabHistory (models.Model):
+    LabCode=models.ForeignKey(Laboratory,
+     on_delete=models.PROTECT)
+
+    AnalystCode=models.CharField(
+        max_length=30,
+        null=False,
+    )
+
+    AnalystAddDate=models.DateTimeField(
+        auto_now_add=True,
+        null=False,
+    )
+    
+    RemoveAnalystDate=models.DateTimeField(
+        null=True,
+    )
+
+class PersonLab(models.Model):
+    PerNationalId=models.ForeignKey(Citizen,
+     on_delete=models.PROTECT)
+
+    LabCode=models.ForeignKey(Laboratory,
+     on_delete=models.PROTECT)
+
+    Date=models.DateTimeField(
+     auto_now_add=True,
+     null=False,
+    )
+
+class Analyst(models.Model):
+    AnalystCode=models.BigIntegerField(
+        primary_key=True,
+        
+    )
+
+    Password=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    RegisterDate=models.DateTimeField(
+     auto_now_add=True,
+     null=False,
+    )
+
+class AnalystWorkOnLab (models.Model):
+    LabCode=models.ForeignKey(Laboratory,
+     on_delete=models.PROTECT)
+
+    AnalystCode=models.ForeignKey(Analyst,
+     on_delete=models.PROTECT)
+
+    WorkOnDate=models.DateTimeField(
+     auto_now_add=True,
+     null=False,
+    )
+  
+class HealthMinistryLicenseLab(models.Model):
+    MinLabCode=models.BigIntegerField(
+        primary_key=True,
+        null=False,
+    )
+
+    LabName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    LabType=models.CharField(
+        max_length=20,
+        null=False,
+    )
+
+    LabGov=models.CharField(
+        max_length=40,
+        null=False,
+    )
+
+class HealthMinistryLicenseCenter(models.Model):
+    CenterCode=models.CharField(
+        max_length=30,        
+        null=False,
+    )
+
+    CenterName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    CenterType=models.CharField(
+        max_length=20,
+        null=False,
+    )
+
+    CenterGov=models.CharField(
+        max_length=40,
+        null=False,
+    )
+
+class MedicalSyndicateLicense(models.Model):
+    SynCode=models.CharField(
+        max_length=30,
+        null=False,
+    )
+
+    NationalId=models.CharField(
+        max_length=30,
+        null=False,        
+    )
+
+    DoctorName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    Specialization1=models.CharField(
+        max_length=50,
+        null=False,
+    )
+
+    Specialization2=models.CharField(
+        max_length=50,
+        null=False,
+    )
+
+class MedicalAnalystLicense(models.Model):
+    AnalystCode=models.CharField(
+        max_length=30,
+        null=False,
+    )
+
+    NationalId=models.CharField(
+        max_length=30,
+        null=False,        
+    )
+
+    AnalystName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    Specialization1=models.CharField(
+        max_length=50,
+        null=False,
+    )
+
+    Specialization2=models.CharField(
+        max_length=50,
+        null=True,
+    )
+    
+
+class Test(models.Model):
+    SynCode=models.CharField(
+        max_length=30,
+        null=False,
+    )
+
+    DoctorName=models.CharField(
+        max_length=60,
+        null=False,
+    )
+
+    Specialization1=models.CharField(
+        max_length=50,
+        null=False,
+    )
+
+    Specialization2=models.CharField(
+        max_length=50,
+        null=False,
+    )
+
+
+
+    MinLabCode Descending 1
+LabName
+LabType
+LabGov
+
+src
+'''
+    path('PassportPatientIdLogin/', include('website.urls')),
+    path('PassportPatientIdLogin/PassportMedicalHistory', include('website.urls')),
+'''
+
+website
+'''
+    path('PassportPatientIdLogin/',views.PassportPatientIdLogin, name="PassportPatientIdLogin"),
+    path('PassportPatientIdLogin/PassportMedicalHistory',views.PassportMedicalHistory, name="PassportMedicalHistory"),
+'''
+
+views
+'''
+def PassportPatientIdLogin(request):
+  return render(request,'Passport/PassportPatientIdLogin.html', {})
+
+def PassportMedicalHistory(request):
+  return render(request,'Passport/PassportMedicalHistory.html', {})
+  '''
+
+
+
+urls
+
+EmergencyPatientIdLogin, EmergencyMedicalHistory,
+
+
+try:
+    all_data = models.MedicalSyndicateLicense.objects.all()
+    Fetch_data = models.MedicalSyndicateLicense.objects.get(SynCode=GetSyndicateCode, Password=GetPasswordLogin)
+    print(all_data)
+    print('------->'+str(Fetch_data.SynCode)+'---->'+str(Fetch_data.Password))
+    print('Doctor id after add form AddDoctor-------->' + (GetSyndicateCode))
+    return render(request,'Doctor/DoctorAdd.html', {})
+  except:
+    print('------------------------You Are Not Alowed------------------------')
+    return render(request,'home.html')
+    
+
+  GetPassportNumber = request.POST=['PassportNumber']
+  request.session['GetPassportNumber_se'] = GetPassportNumber
+  print('Passport id after add form PassportMedicalHistory-------->' + (GetPassportNumber))
+ 
+
+
+ 
+  ''' path('EmergencyPatientIdLogin/',EmergencyPatientIdLogin, name='EmergencyPatientIdLogin'),
+    path('EmergencyPatientIdLogin/EmergencyMedicalHistory',EmergencyMedicalHistory, name='EmergencyMedicalHistory'),
+   '''
+
+
+views
+   '''
+def EmergencyPatientIdLogin(request):
+  return render(request,'Emergency/EmergencyPatientIdLogin.html', {})
+
+def EmergencyMedicalHistory(request):
+  GetNationalID = request.POST=['NationalID']
+  request.session['GetNationalID_se'] = GetNationalID
+  print('Patient id after add form EmergencyPatientIdLogin-------->' + (GetNationalID))
+  return render(request,'Emergency/EmergencyMedicalHistory.html', {})
+'''
+
+
+
+def LaboratoryWorkOnAnalystLogin(request):# Keda ana khadt el code bta3 el center
+  
+  GetLaboratoryCode  =  request.session['GetLabCode_se']
+  GetLaboratoryPass = request.session['GetLaboratoryPass_se']
+  try:
+    Checkifexist = models.HealthMinistryLicenseLab.objects.get(MinLabCode=GetLaboratoryCode, Password=GetLaboratoryPass)
+    print('Laboratory id after add form LaboratoryWorkOnAnalystLogin-------->' + (GetLaboratory_Code))
+    print('Laboratory Exist In Ministry')
+    return render(request,'Laboratory/LaboratoryWorkOnAnalystLogin.html', {})
+  except:
+    print('Laboratory NOT Exist In Ministry OR Check Password')
+    return render(request,'Laboratory/LaboratoryWorkOnLogin.html', {})
+
+def LaboratoryPatientIdLogin(request):# Code El Center// Code El Analyst  
+  GetAnalyst_Code= request.POST['Analyst_Code'] 
+  GetAnalyst_Pass= request.POST['password'] 
+  GetLaboratoryCode  =  request.session['GetLabCode_se']
+  GetLaboratoryPass = request.session['GetLaboratoryPass_se']
+  try:
+    CheckAnalystNLaboratory= models.AnalystWorkOnLab.objects.get(AnalystCode=GetAnalyst_Code, LabCode=GetLaboratoryCode)
+    try:
+      CheckAnalystPass = models.Analyst.objects.get(AnalystCode=GetAnalyst_Code, Password=GetAnalyst_Pass)
+      request.session['GetAnalyst_Code_se'] = GetAnalyst_Code
+      print('Laboratory id after add form LaboratoryPatientIdLogin-------->' + (GetLaboratory_Code))
+      print('Analyst id after add form LaboratoryPatientIdLogin-------->' + (GetAnalyst_Code))
+      return render(request,'Laboratory/LaboratoryPatientIdLogin.html', {})
+    except:
+      print('Check If YOu Exist In Laboratory Model Or Check Your Password')
+      return render(request,'Laboratory/LaboratoryWorkOnLogin.html', {})
+  except:
+    print('!!!!!! Analyst Doesnt Allowed To Work In This Laboratory !!!!!!')
+    return render(request,'Laboratory/LaboratoryWorkOnLogin.html', {})
+
+
+def LaboratoryMedicalHistory(request):# Code El Center// Code El Analyst// code el Patient
+  GetPatient_National_ID= request.POST['Patient_National_ID'] 
+  GetLaboratory_Code = request.session['GetLaboratory_Code_se']
+  GetAnalyst_Code  =  request.session['GetAnalyst_Code_se']
+  LabData = models.Laboratory.objects.get(LabCode=GetLaboratory_Code)
+  AnalystGetData = models.MedicalAnalystLicense.objects.get(AnalystCode=GetAnalyst_Code)
+  AnalystData = models.PersonalData.objects.get(id = AnalystGetData.NationalId)
+  TableData = models.MedicalHistory.objects.filter(PerNationalId=GetPatient_National_ID)  
+  try:
+    PatinetData = models.PersonalData.objects.get(PerNationalId=GetPatient_National_ID)
+    request.session['GetPatient_National_ID_se'] = GetPatient_National_ID
+    print('Analyst id after add form LaboratoryMedicalHistory-------->' + (GetAnalyst_Code))
+    print('Laboratory id after add form LaboratoryMedicalHistory-------->' + (GetLaboratory_Code))
+    print('Patient id after add form LaboratoryMedicalHistory-------->' + (GetPatient_National_ID))
+    return render(request,'Laboratory/LaboratoryMedicalHistory.html', {'TableData':TableData,'LabData': LabData, 'PatientData': PatinetData, 'AnalystData':AnalystData})
+  except:
+    print('Patient Doesnt Signed Up Before')
+    return render(request,'Laboratory/LaboratoryPatientIdLogin.html', {})

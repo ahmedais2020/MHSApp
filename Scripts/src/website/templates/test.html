@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<!---------------------------------------------------------------------------------------------------------->
+<html class="wide wow-animation" lang="en">
+
+<head>
+  {% block title %}Test{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CRoboto+Condensed:300,400,500,600,700,800,900%7CRoboto:300,400,500,600,700,800,900">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!---------------------------------------------------------------------------------------------------------->
+  {% block style %}
+  <style>
+    .neons {
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    .neons h1 {
+      font-size: 4.5rem;
+      font-weight: bold;
+      -webkit-animation: glow 4s ease-in-out infinite alternate;
+      -moz-animation: glow 4s ease-in-out infinite alternate;
+      animation: glow 4s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        color: #fff;
+        text-shadow: 0 0 2px #e6321a5d, 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d;
+      }
+
+      to {
+        color: #fff;
+        text-shadow: 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d, 0 1 18px #e6321a36;
+      }
+    }
+
+
+    .rd-navbar-aside.rd-navbar-static .rd-navbar-nav {
+      padding: 10px 25px 25px 10px;
+      background-color: #2ebbbb;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      font-size: 18px;
+    }
+
+    .rd-navbar-nav a {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 5px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+
+    .rd-navbar-fixed .rd-navbar-panel {
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background: #2ebbbb;
+    }
+
+    .rd-navbar-fixed .rd-navbar-nav {
+      display: inline-block;
+      height: auto;
+      text-align: left;
+      background: #2ebbbb;
+
+    }
+
+    .rd-navbar-nav {
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+
+
+
+
+    .navItem {
+      display: inline-block;
+      position: relative;
+      white-space: nowrap;
+
+    }
+
+    .dropdown-menu {
+      border: none;
+      padding: 0px 0px;
+      background-color: #2ebbbb;
+      color: white;
+      transition: .3s;
+    }
+
+    .dropdown-menu {
+      background-color: #2ebbbb;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      position: absolute;
+      min-width: 100%;
+      transition: .2s;
+    }
+
+    .navItem:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-item {
+      display: block;
+      text-decoration: none;
+      padding: 8px;
+      color: #000;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(to bottom, #19d6d8 70%, #249595 100%);
+      border-radius: 8px;
+      transition: .5s;
+      color: #fff;
+      font-size: 24px;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+
+    }
+
+    .footer-classic {
+      padding: 48px 0 50px;
+      background: #2ebbbb;
+    }
+
+    .footer-classic a {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+    }
+
+    .footer-classic a:hover,
+    .footer-classic a:focus {
+      color: #ffffff;
+      font-size: 24px;
+
+    }
+
+    table {
+      background-color: rgba(6, 146, 146, 0.911);
+      text-align: center;
+    }
+
+    th {
+      background-color: darkolivegreen;
+    }
+
+    .td {
+      background-color: darkolivegreen;
+    }
+  </style>
+  {% endblock %}
+  {% block Img1 %}{% endblock %}
+  <!---------------------------------------------------------------------------------------------------------->
+</head>
+
+<body>
+  <div class="ie-panel"><a href="https://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+      <p>Loading...</p>
+    </div>
+  </div>
+  <div class="page">
+    <section class="section section-relative section-header bg-image" id="home"
+      style="background: url({% static 'images/bg-index.png' %}); background-size: cover ">
+
+      {% block Section1 %}
+      <!--First part code-->
+      <section class="section context-dark section-jumbotron">
+
+        <div class="section-fullheight">
+          <div class="section-fullheight-inner section-md text-center text-lg-left">
+            <div class="container">
+              <div class="row justify-content-center justify-content-lg-start">
+                <div
+                  class="col-md-10 offset-lg-1 col-lg-8 offset-xl-1 col-xl-8 offset-xxl-2 col-xxl-7 offset-top-0-xxl-225">
+                  <div class="jumbotron-custom-1">
+                    <div class="text-1 wow fadeInRight"><br />THE FIRST MIDDLE EAST COUNTRY CARES ABOUT THE HEALTH OF
+                      HER PEOPLE</div>
+                    <div class="container">
+                      <div class="row">
+                        <div class="neons col-12">
+                          <h1>&nbsp;&nbsp;Medical</h1>
+                          <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;History<h1>
+                              <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Application</h1>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="title-text wow fadeInRight">To Get Better Life You Must Change Your Mind</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--END OF First Part Code-->
+        <ul class="project-list">
+          <li class="bg-image" style="background-image: url({% static 'images/project-1-671x214.jpg' %})"><a
+              href="GeneraLinstructions">General Instructions</a></li>
+          <li class="bg-image" style="background-image: url({% static 'images/project-2-671x214.jpg' %})"><a
+              href="#">Citizen Instructions</a></li>
+          <li class="bg-image" style="background-image: url({% static 'images/project-3-671x214.jpg' %})"><a
+              href="#">Doctor Instructions</a></li>
+        </ul>
+      </section>
+
+      {% endblock %}
+    </section>
+
+    {% block Section2 %}
+    <br>
+    <table border="2px">
+      <tr>
+        <th>Id</th>
+        <th>SynCode</th>
+        <th>DoctorName</th>
+        <th>Specialization1</th>
+        <th>Specialization2</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      {% for object in D %}
+      <tr>
+        <td>{{object.id}}</td>
+        <td>{{object.SynCode}}</td>
+        <td>{{object.DoctorName}}</td>
+        <td>{{object.Specialization1}}</td>
+        <td>{{object.Specialization2}}</td>
+        <td class="td"><a href="{% url 'CenterUpgrade' object.id  %}">Update</a></td>
+        <td class="td"><a href="{% url 'CenterRemoveData' object.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+    To Add New Doctor Click <a href="{% url 'CenterSignUp' %}">Here</a>
+    <div><br><br></div>
+    {% endblock %}
+    <!---------------------------------------------------------------------------------------------------------------------->
+
+
+  </div>
+  <div class="snackbars" id="form-output-global"></div>
+  <script src="{% static 'js/core.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- coded by Starlight-->
+
+  <!--LIVEDEMO_00 -->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7078796-5']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '{% static '.google -
+        analytics.com / ga.js ' %}';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+
+</html>

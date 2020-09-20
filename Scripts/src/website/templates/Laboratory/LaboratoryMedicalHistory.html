@@ -1,0 +1,583 @@
+<!-- Price box minimal--><!DOCTYPE html>
+
+{% load static %}
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Laboratory Medical History</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CRoboto+Condensed:300,400,500,600,700,800,900%7CRoboto:300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+                    .neons {
+                margin-top: 20px;
+                text-decoration: none;
+              }
+              
+              .neons h1 {
+                font-size: 4rem;
+                font-weight: bold;
+                -webkit-animation: glow 4s ease-in-out infinite alternate;
+                -moz-animation: glow 4s ease-in-out infinite alternate;
+                animation: glow 4s ease-in-out infinite alternate;
+              }
+
+              @-webkit-keyframes glow {
+                  from {
+                    color: #fff;
+                  text-shadow: 0 0 2px #e6321a5d, 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d;
+                }
+                
+                to {
+                  color: #fff;
+                  text-shadow: 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d, 0 1 18px #e6321a36;
+                }
+              }
+
+      .UP{
+        font-size:24px;        
+        font-weight:bold;
+      }
+
+   
+    .ie-panel{
+      display: none;
+      background: #212121;
+      padding: 5px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);
+      clear: both;
+      text-align:center;
+      position: relative;
+      z-index: 1;
+    }
+     html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+
+     .rd-navbar-fixed .rd-navbar-panel {
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background: #2ebbbb;
+      }
+
+      .rd-navbar-fixed .rd-navbar-nav {
+        display: inline-block;
+        margin: 15px 0;
+        height: auto;
+        text-align: left;
+        background: #2ebbbb;
+
+      }
+        .rd-navbar-nav{
+        box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+        }
+
+        .rd-navbar-aside.rd-navbar-static .rd-navbar-nav {
+      padding: 10px 25px 25px 10px;
+      background-color: #2ebbbb;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      font-size: 18px;
+      }
+      .rd-navbar-nav a{
+        font-size: 17px;
+        font-weight: bold;
+        text-align: center;
+        }
+        
+
+        .navItem{
+          display:inline-block;
+          position:relative;
+          white-space:nowrap;
+
+        }
+
+          .dropdown-menu{
+          border: none;
+          padding: 0px 0px;
+          background-color:#2ebbbb;
+          color: white;
+          transition: .3s;
+          }
+
+          .dropdown-menu{
+          background-color:#2ebbbb;
+          box-shadow:2px 4px 8px rgba(0,0,0,0.2);
+          z-index:1;
+          position: absolute;
+          min-width: 100%;
+          transition:.2s;
+          }
+          .navItem:hover>.dropdown-menu{
+          display: block;
+          }
+       
+          .dropdown-item{
+          display: block;
+          text-decoration: none;
+          padding: 8px;
+          color: #000;
+         }
+
+        .dropdown-item:hover{
+        background: linear-gradient(to bottom, #19d6d8 70%, #249595 100%);
+        border-radius: 8px;
+        transition:.5s;
+        color:#fff;
+        font-size:24px;
+        box-shadow:2px 4px 8px rgba(0,0,0,0.2);
+        font-weight:bold;
+
+         }
+         .upimg{
+           margin-right: 200px;
+         }
+        .footer{
+          position: absolute;
+          left: 5;
+          margin-left: 2px;
+          bottom: 0;
+          width: 100%;
+          height: 75px;
+          background-color:#44afaf;
+        }
+        .Right-side{
+          text-align: right;
+          color:#fff;
+          vertical-align: text-top;
+        }
+        .Right-text-right{
+          text-align: right;
+        }
+
+        /*CSS Add Profile Form*/
+        html {
+  height: 100%;
+}
+
+.login-box {
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+.col-12 {
+    flex: 0 0 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    max-width: 100%;
+    
+}
+
+
+
+.login-box h3 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 35px;
+  color: #2ebbbb;
+  cursor: pointer;
+  transition:.5s;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+        /*END CSS Add Profile Form */
+.formbody{
+  height: 750pt;
+}
+
+/*--------------------Table CSS------------------------*/
+ 
+            #tableheader{
+                font-family: arial;
+                font-size: 21px;
+                font-weight: bold;
+                color: honeydew;
+                }
+            #div2{
+                height: 400px;
+                width: 2650px;
+                overflow: auto;
+                overflow-x: auto;
+            }
+            #table2{
+                text-align: center;
+                font-family: arial;
+                width: 2630px;
+                color: rgb(0, 0, 0);
+                padding: 0px;
+            }
+            #table1{
+                text-align: center;
+                font-family: arial;
+                width: 2630px;
+                color: rgb(0, 0, 0);
+                padding: 0px;
+            }
+            #tableheader td{
+              height: 50px;
+              padding: 0px;                   
+              background-color: #239b9b;
+              border-radius: 30px;  
+              border-bottom: 5px solid #1d5357;
+              border-right: 5px solid #1d5357;
+              border-top: 5px solid #1d5357;
+              position: sticky;
+              letter-spacing: 1px;
+              font-size: 30px;
+              font-weight: bold;
+            }
+           
+            #table2 td {
+              height: 50px;
+              padding: 5px;              
+              font-size: 24px;
+              font-weight: bold;
+              color: rgba(0, 0, 0, 0.753);
+              border-bottom: 5px solid #1d5357;
+              border-right: 5px solid #1d5357;                
+              border-radius: 30px;              
+              background-color: #7de9e9;
+            
+            }
+            #tableheader th,  #table2 td{
+              width: auto;
+            }
+            #table2 tr:hover td {
+                background-color: #0affffd2;
+                cursor: pointer;
+                transition: .5s;
+                font-size: 26px;
+            }
+            #tableheader, #table2{
+                text-align: center;
+            }
+            .btn {
+              border: none;
+              background-color: #2ebbbb;
+              padding: 14px 28px;
+              cursor: pointer;
+              font-size: 30px;
+              border-radius: 10px;
+              display: inline-block;
+              line-height: 30px;
+              box-shadow:12px 12px 12px rgb(0, 48, 48);
+            }
+
+
+            /* On mouse-over */
+            .btn:hover {
+              background: #7de9e9e1;
+              cursor: pointer;
+              color: rgba(163, 24, 0, 0.849);
+            }
+            .default {color: white; font-weight: bold;}
+            .btn2 {
+              border: none;
+              font-size: 20px;
+              background-color: #2ebbbb;
+              border-radius: 25px;
+              padding: 14px 28px;
+              cursor: pointer;
+              display: inline-block;
+            }
+
+            /* On mouse-over */
+            .btn2:hover {background: #7de9e9;}
+            .default2 {color: white;  font-weight: bold;} 
+            .btn3 {
+              border: none;
+              font-size: 20px;
+              background-color: #2ebbbb;
+              border-radius: 25px;
+              padding: 14px 28px;
+              cursor: pointer;
+              display: inline-block;
+            }
+
+            /* On mouse-over */
+            .btn2:hover {background: #7de9e9;}
+            .default3 {color: white;  font-weight: bold;} 
+            ::placeholder {
+              color: white;
+            }
+            .TopTable{
+              width: 2400px;
+              text-align: center;
+                color: rgba(190, 255, 184, 0.952);
+                font-size: 20px;
+                font-weight: bolder;
+            }
+            
+            .TopTable label{
+                text-align: center;
+                background-color: #6afdfdef;
+                font-size: 20px; 
+                font-weight: bolder;        
+                height: 30px;   
+                border-radius: 25px;
+                color:rgba(13, 13, 197, 0.822);  
+            }
+            ::placeholder{
+              color: #555;
+            }
+            #AddReport, #AddTreatment{
+              text-align: left;
+                background-color: #6afdfdef;
+                font-size: 24px; 
+                font-weight: bold;    
+                color:rgba(0, 0, 0, 0.822); 
+            }
+    </style>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("SyndicateIDField");
+        var y = document.getElementById("SaveBtn");
+        if (y.style.display === "none") {
+          y.style.display = "block";
+          x.style.visibility = " visible";
+        } else {
+          y.style.display = "none";
+          x.style.visibility = "hidden";
+        }
+      }
+    </script>
+  </head>
+<body style="background-color: #1d5357; padding-left: 15px; height: 110vh;">
+  
+    <table class="TopTable" cellpadding="9px" style="width: 220px;"> 
+      <tr>
+        <td>Laboratory Name <br>
+          <label style=" text-align: center; border-radius: 15px; width: 200px;" type="text" maxlength="0" for="">{{LabData.LabName}}</label>
+        </td>
+        <td>Laboratory Type <br>
+          <label style=" text-align: center; border-radius: 15px; width: 160px;" type="text" maxlength="0" for="">{{LabData.LabType}}</label>
+        </td>
+        <td>Laboratory Governorate <br>
+          <label style=" text-align: center; border-radius: 15px;width: 200px;" type="text" maxlength="0" for="">{{LabData.LabGov}}</label>
+        </td>
+        <td>Laboratory City <br>
+          <label style=" text-align: center; border-radius: 15px;width: 150px;" type="text" maxlength="0" for="">{{LabData.CurrentAddress}}</label>
+        </td>
+        <td class="AGE_NAME" style="padding-left: 120px;">Patient Name <br>
+          <label style="color: brown; text-align: center; border-rad'TableData':TableData,ius: 15px; width: 400px;" type="text" maxlength="0" for="">{{PatientData.FullName}}</label>
+
+          </td>
+        <td class="AGE_NAME">Age <br>
+          <label style="color: brown; text-align: center; border-radius: 15px; width: 100px;" type="text" maxlength="0" for="">26</label>
+          </td>
+          <td class="AGE_NAME" style="padding-left: 120px;">Analyst Name <br>
+            <label style="color: rgba(13, 13, 197, 0.822); text-align: center; border-radius: 15px; width: 400px;" type="text" maxlength="0" for="">{{AnalystData.FullName}}</label>
+    
+            </td>
+      </tr>
+
+
+    </table>
+    <br><br>
+    <table  id="table1">
+          <tr id="tableheader">
+            <td class="th1" style="width: 145px;">Date </td>
+            <td class="th2" style="width: 340px;">Laboratory Name</td>
+            <td class="th3" style="width: 320px;">Analyst Name</td>
+            <td class="th4" style="width: 450px;">Medical Report</td>
+            <td class="th5" style="width: 450px;">Treatment</td>
+            <td class="th6" style="width: 450px;">Analysis Report</td>
+            <td class="th7" style="width: 450px;">Rays Report</td>
+        </tr>
+      </table>
+    
+    <div id="div2">   
+      <table  id="table2">
+        
+        {% for GetData in TableData %}
+        <tr>
+          <td class="td1" style="width: 145px;">{{GetData.RecordDate}}</td>
+          <td class="td2 " style="width: 340px;">{{GetData.LabName}}</td>
+          <td class="td3 " style="width: 320px;">{{GetData.DoctorName}}</td>
+          <td class="td4 " style="width: 450px;">{{GetData.MedicalReport}}</td>
+          <td class="td5 " style="width: 450px;">{{GetData.Treatment}}</td>
+          <td class="td6 " style="width: 450px;">{{GetData.AnalysisReport}}</td>
+          <td class="td7 " style="width: 450px;">{{GetData.RaysReport}}</td>
+        </tr>
+        {% endfor %}
+        
+        
+      </table>
+    
+    </div>
+     
+    <table cellpadding="10px" cellspacing="15px">
+      <form action="LabSaveReport" method="POST">
+        {% csrf_token %}
+        <tr>
+          <td rowspan="2"><textarea id="AddReport" required name="AnalysisReport" rows="4" cols="50"
+              placeholder="Add Analysis Report	"></textarea></td>
+          <td rowspan="2"><textarea id="AddTreatment" name="RaysReport" rows="4" cols="50"
+              placeholder="Add Rays Report"></textarea></td>
+          <td> <button class="btn default" type="submit">Save Report</button></td>
+        </tr>
+      </form>
+      <tr>
+      <form method="POST" action="{% url 'NewLabPatient' %}"  autocomplete="off" >
+        {% csrf_token %}
+        <td>
+          <center>
+            <button style="background: transparent; border: none;" type="submit"  class="btn default">
+                <span></span><span></span><span></span><span></span>
+                <font style="color: #03e9f4;"> New Patient  </font>             
+            </button>
+          </center>
+        </td>
+       </form>
+      </tr>
+    </table>
+ 
+</body>
+  </html>

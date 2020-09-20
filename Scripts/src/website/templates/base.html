@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- Price box minimal-->
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>{% block title %}Home{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CRoboto+Condensed:300,400,500,600,700,800,900%7CRoboto:300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylebase.css' %}">
+    <style>
+      .login-box form button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+  }
+
+
+  .login-box form button:hover {
+  background: #03e8f46c;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e8f4a6,
+              0 0 25px #03e8f4a6,
+              0 0 50px #03e8f4a6,
+              0 0 100px #03e8f4a6;
+  }
+
+  .login-box form button span {
+  position: absolute;
+  display: block;
+  }
+
+  
+
+  .login-box form button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+  }
+
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+
+  .login-box form button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+
+  .login-box form button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+  }
+
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+
+  .login-box form button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+  }
+
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+  
+.alert{
+  background: #3de06c;
+  color: rgb(206, 15, 15);
+  font-size: 25px;
+
+  text-align: center;
+  margin-left: 5px;
+  margin-top: 9px;
+  font-weight: bold;
+  border-radius: 25px;
+  
+}
+    </style>
+              
+    
+    {% block style %}   
+    
+   
+    
+    {% endblock %}
+    {% block script %}    {% endblock %}    
+  </head>
+    <body>
+    
+    
+    <div class="ie-panel"><a href="https://windows.microsoft.com/en-US/internet-explorer/"><img src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <div class="page">
+      <section class="section section-relative section-header bg-image" id="home" style="background: url({% static 'images/bg-index.png' %}); background-size: cover ">
+        {% block navbar %} 
+          <!-- Page Header-->
+          <header class="section page-header header-absolute" style="position: fixed;">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap">
+              <nav class="rd-navbar rd-navbar-aside" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+                <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+                <div class="rd-navbar-collapse">
+                  <ul class="list rd-navbar-list">
+                    <li><a class="icon icon-sm icon-bordered link-default mdi mdi-behance" href="#"></a></li>
+                    <li><a class="icon icon-sm icon-bordered link-default mdi mdi-facebook" href="#"></a></li>
+                    <li><a class="icon icon-sm icon-bordered link-default mdi mdi-instagram" href="#"></a></li>
+                  </ul>
+                </div>
+                <div class="rd-navbar-main-outer">
+                  <div class="rd-navbar-main">
+                    <!-- RD Navbar Panel-->
+                    <div class="rd-navbar-panel">
+                      <!-- RD Navbar Toggle-->
+                      <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                      <!-- RD Navbar Brand-->
+                      <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="{% static 'images/logo-default-153x36.png' %}" alt="" width="153" height="36" srcset="{% static 'images/logo-default-306x72.png' %} 2x"/><img class="brand-logo-light" src="{% static 'images/logo-inverse-306x72.png' %}" alt="" width="306" height="72" srcset="{% static 'images/logo-inverse-306x72.png' %} 2x"/></a>
+                      </div>
+                    </div>
+                    <div class="rd-navbar-nav-wrap toggle-original-elements active">
+                      <!-- RD Navbar Nav-->
+                      <ul class="rd-navbar-nav">
+                        <li class="navItem"><a class="rd-nav-link" href="#home"></a>
+
+                        </li>
+                        <li class=" navItem"style="margin-left: 15px;"><a class="rd-nav-link" href="/home">Home</a>
+                        </li>
+                      <!-- DropList Citizen Services Code -->
+                      <li class="navItem mx-auto" style="padding-left: 15px;" >
+                        <a class="navmenu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                          <font color="white">Citizen Services</font>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/CitizenShowLogin">Show Medical History</a>
+                            <a class="dropdown-item" href="/CitizenEditLogin">Edit Profile</a>
+                            <a class="dropdown-item" href="/CitizenAddLogin">Add Profile</a>
+                            <a class="dropdown-item" href="/PassportPatientIdLogin">Passport</a>
+                        </div>
+                        </li>
+                        <!-- DropList Citizen Services Code END-->
+
+                        <!-- DropList Doctor Services Code -->
+                        <li class="navItem mx-auto">
+                                    <a class="navmenu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                      <font color="white">Doctor Services</font>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/DoctorWorkOnLogin">Work On System</a>
+                                    <a class="dropdown-item" href="/DoctorEditLogin">Edit Doctor</a>
+                                    <a class="dropdown-item" href="/AnalystEditLogin">Edit Analyst</a>
+                                    <a class="dropdown-item" href="/AddDoctorLogin">Add Doctor</a>
+                                    <a class="dropdown-item" href="/AddAnalystLogin">Add Analyst</a>
+                                </div>
+                            </li>
+                        <!-- DropList Doctor Services Code END-->
+
+
+                        <!-- DropList Medical History Services Code -->
+                      <li class="navmenu navItem mx-auto">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                          <font color="white">Medical Center Services</font>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/CenterWorkOnLogin">Work On System</a>
+                        <a class="dropdown-item" href="/CenterEditProfileLogin">Edit Profile</a>
+                        <a class="dropdown-item" href="/CenterSignupLogin">Sign Up</a>
+                        </div>
+                      </li>
+                      <!-- DropList Medical History Services Code END-->
+
+                        <!-- DropList Laboratory Services Code -->
+                        <li class="navmenu navItem mx-auto" style="margin: auto;">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <font color="white" >Laboratory Services</font>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/LaboratoryWorkOnLogin">Work On System</a>
+                                    <a class="dropdown-item" href="/LaboratoryAddBloodGroup">Add Blood Group</a>
+                                    <a class="dropdown-item" href="/LaboratoryEditProfileLogin">Edit Profile</a>
+                                    <a class="dropdown-item" href="/LaboratorySignupLogin">Sign Up</a>
+                                </div>
+                            </li>
+                        <!-- DropList Laboratory Services Code END-->
+                        <!-- DropList Others Code -->
+                        <li class="navmenu navItem mx-auto" style="margin: auto;">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <font color="white" >Others</font>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!--
+                               <a class="dropdown-item" href="/EmergencyPatientIdLogin">Emergency</a>
+                            -->
+                          <a class="dropdown-item" href="/OurTeam">Our Team</a>
+                          <a class="dropdown-item" href="/admin">Admin Siet</a>
+                      </div>
+                      </li>
+                      <!-- DropList Others Code END-->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="animation start-home">
+
+                </div>
+              </nav>
+              
+            </div>
+          </header>
+        {% endblock %}
+       
+          
+        <!--First part code-->
+        {% block Section1 %}
+          <section class="section context-dark section-jumbotron">
+
+            <div class="section-fullheight">
+              <div class="section-fullheight-inner ">
+                <div class="container" style="height:100vh">
+                  <section class="bodyinline">    
+                    <div class="row justify-content-center justify-content-lg-start" style="margin-top:20vh;">
+                      <!--Left side class-->
+                      <div class="col" style="height: 75vh;"> 
+                        <div class="leftside">
+                          
+                          <div class="neons col-12" style="padding-top: 10vh;">
+                            <h1>&nbsp;&nbsp;Medical</h1>
+                            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;History<h1>
+                            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Application</h1>
+                          </div>
+          
+                        </div>
+                      </div>
+                      <!--End OF left side class code-->
+                      <!--Right side class code-->
+                      <div class="col" >                              
+                      <div class="rightside ">              
+                          {% block Img1 %} <img  src="{% static 'images/AddProfile-1.png' %}"  />  {% endblock %}                  
+                      </div>
+                    </div>                            
+                    <!--End OF right side class code-->
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+              <!--END OF First Part Code-->
+            
+          </section>
+          {% endblock %}
+        </section>
+     <div>
+
+       {% block Section2 %}
+       {% block body %}
+       
+       {% endblock %}  
+      <section class="bodyinline">    
+        <div class="row justify-content-center justify-content-lg-start" style="margin-top:10vh;">
+          
+           {% block Section2leftdiv %}
+            <!--Left side class-->
+            <div class="col" id="leftdowncol" style="height: 75vh;"> 
+              
+              <div class="leftside" >
+                
+              </div>
+            
+            </div>
+            <!--End OF left side class code-->
+            {% endblock %}
+            {% block Section2rightdiv %}
+          <!--Right side class code-->
+          <div class="col" id="rightdowncol" >                              
+           <div class="rightside ">              
+                               
+           </div>
+          </div>                            
+         <!--End OF right side class code-->
+         {% endblock %}
+         </div>
+      </section>
+
+      {% endblock %}
+       </div>
+        <!---------------------------------------------------------------------------------------------------------------------->
+       {% block footer %}
+       <footer class="section footer-classic context-dark text-center">
+        <div class="container">
+          <div class="row row-15 justify-content-lg-between">
+            <div class="col-lg-4 col-xl-3 text-lg-left">
+              <p class="rights" style="color: rgb(0, 0, 0); font-weight: bold; font-size: 18px;"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span> Copyright: <br> For Egypt Protects Her People Site</span></p>
+            </div>
+            <div class="col-lg-5 col-xl-6">
+              <ul class="list-inline list-inline-lg text-uppercase">
+                <li><a class="small-2 font-weight-regular" href="#">About us</a></li>
+                <li><a class="small-2 font-weight-regular" href="OurTeam">Our Team</a></li>
+                <li><a class="small-2 font-weight-regular" href="#">News</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 text-lg-right"></div>
+          </div>
+        </div>
+      </footer>
+        {% endblock %}
+      </div>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="{% static 'js/core.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- coded by Starlight-->
+	
+    <!--Alert Notification Time
+    <script> 
+      setTimeout(function(){
+        if ($('#msg').length>0){
+          $('#msg').remove();
+        }
+      },4000)
+      </script>
+    -->
+      
+    <!--Alert Notification Time-->
+	<script type="text/javascript">
+	 var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-7078796-5']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '{% static '.google-analytics.com/ga.js' %}';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();</script>
+	
+  </body> 
+  </html>

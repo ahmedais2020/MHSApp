@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<!---------------------------------------------------------------------------------------------------------->
+<html class="wide wow-animation" lang="en">
+  <head>
+    {% block title %}General Instructions{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CRoboto+Condensed:300,400,500,600,700,800,900%7CRoboto:300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+ <!---------------------------------------------------------------------------------------------------------->
+ {% block Img1 %}                           <br><br>
+ <img src="{% static 'images/12345.png' %}">                 
+                      {% endblock %}  
+
+    {% block style %}
+    <style>
+    </style>
+    {% endblock %}
+    </head>
+    {% block body %}
+    <div>
+         <p>
+            <center><h1 style="color: black;">بعض الارشادات العامة</h1> </center>
+                
+        </p>
+    </div>
+    <div>
+        <img style="width: 100%;" src="{% static 'images/11.png' %}" />                    
+    </div>
+    <div>
+        <p>
+           <h2 style="text-align: right;">من اضرار التشخيصات الطبية الخاطئة </h2>  
+            <div style="text-align: right; font-size: 18px; text-indent: 30px;">        
+                
+                    <br>
+                    <h3 style="font-weight: bold;">
+                        من اضرار التشخيصات الطبية الخاطئة 
+                        </h3>
+                        <br>
+                        <h3>
+                        انها  قد تؤدى الى الوفاة او إرتفاع ضغط الدم اوالنوبات القلبية اوالسكتات الدماغية او التسمم الدوائى اوبعض أنواع السرطانات وغيرها من الامراض
+                        </h3>
+                        <br>
+                        <h3 style="font-weight: bold;">
+                        ومن أسباب التشخيص الطبى الخاطئ  
+                         </h3>
+                        <br>
+                        <h3>
+                        عدم معرفة الطبيب بالحالة الصحية العامة للمريض من خلال سجل طبى موثق وخصوصا فى حالات الطوارئ والحوادث وما اذا كان المصاب من ذوى الامراض المزمنه والتى تتأثر بالادوية مثل بعض امراض القلب اوالحساسية او السكر او ضغط الدم  وغيرها
+                        </h3>
+                        <br>
+                        <h3>
+                        عدم معرفة الطبيب بالادوية التى يحافظ المريض على تناولها وما اذا كانت ستتعارض كميائيا مع مركبات دوائية سيقوم بكتابتها 
+                        </h3>
+                        <br>
+                        <h3>
+                        عدم قدرة الطبيب على الحصول عن اى معلومات طبية من مريض فاقد للوعى بسبب الحادث او غيبوبة نتيجة مرض معين او لاى سبب 
+                        </h3>
+                        <br>
+                        <h3 style="font-weight: bold;">
+                        
+                        وقد يكون المريض نفسه هو المتسبب فى ذلك دون قصده فمثلا 
+                        </h3>
+                        <br>
+                        <h3>
+                        قد يحرج المريض من ذكر عملية قام بأجرائها فى مكان ما بجسمه ويحرج من ذكره فقد يتناسى فى بعض الاوقات ويمكن ان لا تساعدة الذاكره لكبر سنه  فى تذكر تاريخه المرضى او لان تاريخه المرضى كبير ولايستطيع اى انسان من حفظ هذا الكم من البيانات الطبيه فى ذاكرته البشرية 
+                        </h3>
+                        <br>
+                        <h3>
+                        
+                        او قد يذكر البعض سن اقل من سنه الاساسى مما يضلل الطبيب فى تشخيصه او توقعاته الطبيه المبنية على اساس علمى لكل سن من مراحل العمر المختلفة 
+                        </h3>
+                        <br>
+                        <h3>
+                        او قد ينسى ذكر اسم لدواء قد يتعارض مع عقار طبى اخر 
+                        </h3>
+                        <br>
+                        <h3>
+                        
+                        وخاصا ً ان النسبة الاكبر من عدد السكان مقيمين بالريف والقرى وقد تكون نسبة التعليم والمستوى  التعليمى اقل نسبا ً الى الحضر , وعدم قدرتنا جميعا من افادة الطبيب بالاسلوب العلمى الذى يتمناه 
+                        </h3>
+                        <br>
+                        <h3>
+                        
+                        وغير ذلك العديد والعديد
+                        </h3>
+                        
+                    
+            </div>
+            <div>
+                <img style="width: 100%;" src="{% static 'images/2.png' %}" />      
+                <img style="width: 100%;" src="{% static 'images/3.png' %}" />       
+            </div>
+        </p>
+    </div>
+  {% endblock %}  
+</html>

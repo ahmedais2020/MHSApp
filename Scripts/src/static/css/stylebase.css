@@ -1,0 +1,130 @@
+.neons {
+    margin-top: 20px;
+    text-decoration: none;
+  }
+
+  .neons h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    -webkit-animation: glow 4s ease-in-out infinite alternate;
+    -moz-animation: glow 4s ease-in-out infinite alternate;
+    animation: glow 4s ease-in-out infinite alternate;
+  }
+
+  @-webkit-keyframes glow {
+      from {
+        color: #fff;
+      text-shadow: 0 0 2px #e6321a5d, 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d;
+    }
+    
+    to {
+      color: #fff;
+      text-shadow: 0 0 4px #e6321a5d, 0 0 6px #e6321a5d, 0 0 8px #e6321a5d, 0 0 10px #e6321a5d, 0 0 12px #e6321a5d, 0 0 14px #e6321a5d, 0 0 16px #e6321a5d, 0 1 18px #e6321a36;
+    }
+  }
+
+
+.rd-navbar-aside.rd-navbar-static .rd-navbar-nav {
+padding: 10px 25px 25px 10px;
+background-color: #2ebbbb;
+border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+font-size: 18px;
+}
+.rd-navbar-nav a{
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+}
+
+.ie-panel{
+display: none;
+background: #212121;
+padding: 5px 0;
+box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);
+clear: both;
+text-align:center;
+position: relative;
+z-index: 1;
+}
+html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+
+.rd-navbar-fixed .rd-navbar-panel {
+color: #fff;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+background: #2ebbbb;
+}
+
+.rd-navbar-fixed .rd-navbar-nav {
+display: inline-block;
+height: auto;
+text-align: left;
+background: #2ebbbb;
+
+}
+.rd-navbar-nav{
+box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+}
+
+
+
+
+
+.navItem{
+display:inline-block;
+position:relative;
+white-space:nowrap;
+
+}
+
+.dropdown-menu{
+border: none;
+padding: 0px 0px;
+background-color:#2ebbbb;
+color: white;
+transition: .3s;
+}
+
+.dropdown-menu{
+background-color:#2ebbbb;
+box-shadow:2px 4px 8px rgba(0,0,0,0.2);
+z-index:1;
+position: absolute;
+min-width: 100%;
+transition:.2s;
+}
+.navItem:hover>.dropdown-menu{
+display: block;
+}
+
+.dropdown-item{
+display: block;
+text-decoration: none;
+padding: 8px;
+color: #000;
+}
+
+.dropdown-item:hover{
+background: linear-gradient(to bottom, #19d6d8 70%, #249595 100%);
+border-radius: 8px;
+transition:.5s;
+color:#fff;
+font-size:24px;
+box-shadow:2px 4px 8px rgba(0,0,0,0.2);
+font-weight:bold;
+
+}
+.footer-classic {
+padding: 48px 0 50px;
+background: #2ebbbb;
+}
+
+.footer-classic a {
+color: rgb(0, 0, 0);
+font-weight: bold;
+}
+.footer-classic a:hover, .footer-classic a:focus {
+color: #ffffff;
+font-size: 24px;
+
+}

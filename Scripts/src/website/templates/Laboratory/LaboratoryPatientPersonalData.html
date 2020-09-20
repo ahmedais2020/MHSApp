@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Laboratory Patient Information</title>
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'file://E:/fontawesome/css/all.css' %}">
+	
+    
+        <style>
+             Body{
+                background-color: rgb(31, 105, 105);
+                height: 98vh;
+                margin: 0;
+                padding: 0;
+            }
+            .TopInf tr{
+                width: 100%;
+            }
+            .TopInf td{
+                text-align: center;
+                color: rgba(190, 255, 184, 0.952);
+                font-size: 20px;
+                font-weight: bolder;
+            }
+            .TopInf input{
+                text-align: center;
+                background-color: #2ebbbb;
+                font-size: 20px; 
+                font-weight: bolder;        
+                height: 30px;   
+                border-radius: 25px;
+            }
+            ::placeholder{
+                color:white;            
+                font-size: 20px;
+                font-weight: bolder;
+            }
+            .PatientInformation{
+                text-align: center;
+                font-size: 28px;
+                font-weight: bolder;
+                color:  rgba(190, 255, 184, 0.952);
+                padding-left: 45px;
+            }
+            .PatientTableInformation, button{
+                margin-left: auto;
+                margin-right: auto;
+                color: white;
+                width: 60%;
+                font-size: 26px;
+                text-align: center;
+                font-weight: bolder;
+            }
+            .PatientTableInformation td, button{         
+                background: linear-gradient(to bottom, #1dced1 40%, #248f8f 70%);
+                border-radius: 8px;
+                box-shadow:12px 12px 12px rgb(0, 48, 48);
+                
+            }
+            
+            .PatientData{
+                width: 90%;
+                padding-left: 45px;
+            }
+            button{
+                outline: none;
+                /*Button Center Code*/
+                    display: block;
+                    margin: auto;
+                /*Button Center Code*/
+                top: 130%;
+            }
+        </style>
+    </head>
+    <body>
+        
+            <table class="TopInf" cellpadding="25px">
+                <tr >
+                    <td>Laboratory Name <br> <input style="width: 320px;" type="text" placeholder="El-Shrouq" maxlength="0"></td>
+                    <td>Laboratory Type <br> <input   type="text" placeholder="Special" maxlength="0" ></td> 
+                    <td>Analyst Name <br> <input style="width: 500px;"  type="text" placeholder="Mahmoud Adel Abdelrahman abdelmanaem" maxlength="0"></td>
+                </tr>
+            </table>
+            <div class="PatientInformation">Patient Information :</div>
+            <div style="border-radius: 15px; max-height: 140px;">
+                <table class="PatientTableInformation" style="line-height: 10px;"  cellpadding="20px" cellspacing="9px" >
+                <tr>
+                    <td style="font-size: 35px; color: rgba(209, 0, 0, 0.877); font-weight: bolder;" rowspan="2">Age :</td>
+                    <td style="color: rgba(209, 0, 0, 0.877); font-weight: bolder;">Years</td>
+                    <td style="color: rgba(209, 0, 0, 0.877); font-weight: bolder;">Monthes</td>
+                    <td style="color: rgba(209, 0, 0, 0.877); font-weight: bolder;">Days</td>
+                    <td style="font-size: 35px;color: rgba(209, 0, 0, 0.877); font-weight: bolder;" rowspan="2">Blood : <br><br><br><br>
+                    <label for="" style="font-size: 35px; color: rgba(209, 0, 0, 0.877); font-weight: bolder;">O</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: rgba(0, 0, 255, 0.644); font-weight: bolder;"><label for="" > 123 </label></td>
+                    <td style="color: rgba(0, 0, 255, 0.644); font-weight: bolder;"><span>1234</span></td>
+                    <td style="color: rgba(0, 0, 255, 0.644); font-weight: bolder;"><label for="" > 123 </label></td>
+            </tr>                
+            </table>
+            </div>
+            <table class="PatientTableInformation" style="width: 95%; height: 47%; line-height: 10px;" cellspacing="9px" >
+                <tr>
+                    <td style="color: rgba(209, 0, 0, 0.877);">Full Name</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);"><label>Ahmed Mohamed ALI Mohamed</label></td>
+                    <td style="color: rgba(209, 0, 0, 0.877);">Jop</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);;"><label>Accounting</label></td>
+                </tr>
+                <tr>
+                    <td style="color: rgba(209, 0, 0, 0.877);">First Phone</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);"><label>012345678912</label></td>
+                    <td style="color: rgba(209, 0, 0, 0.877);">Secound Phone</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);"><label>012345678912</label></td>
+                </tr>
+                <tr>
+                    <td style="color: rgba(209, 0, 0, 0.877);">First Relative Phone</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);"><label>012345678912</label></td>
+                    <td style="color: rgba(209, 0, 0, 0.877);">Name</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);"><label>Ahmed Mohamed ALI Mohamed</label></td>
+                </tr>
+                <tr>
+                    <td style="color: rgba(209, 0, 0, 0.877);">Secound Relative Phone</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);"><label>012345678912</label></td>
+                    <td style="color: rgba(209, 0, 0, 0.877);">Name</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);"><label>Ahmed Mohamed ALI Mohamed</label></td>
+                </tr>
+                <tr>
+                    <td style="color: rgba(209, 0, 0, 0.877);">Address</td>
+                    <td style="color: rgba(0, 0, 255, 0.644);" colspan="3"><label>Giza / Faisal street / Tawabeq Square / Block.4</label></td>
+                    
+                </tr>
+            </table>            
+            <br>
+            <div>
+                <table style="width: 95%;">
+                    <tr>
+                    <td>
+                        <a style="text-decoration: none;" href="LaboratoryMedicalHistory">
+                            <button  style="height: 80px;" class="btn default">Show Medical History</button>
+                        </a>
+                        
+                    </td>
+                    <td>
+                        <button onclick="myFunction()" class="btn2 default2" style="width: 180px;height: 80px;">Print</button>
+                    </td>
+                   
+                    </tr>
+                </table>
+              </div>
+           
+            <br><br><br>
+            
+          
+              <br><br>
+      
+    </body>
+
+</html>
